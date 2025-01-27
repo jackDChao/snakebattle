@@ -7213,7 +7213,7 @@ module.exports = new CrumbManager();
 var list = document.getElementById("snake_list");
 
 function createLI(data, i) {
-	return "<li><span>" + i + "</span><span>" + data.name + "</span><span>" + data.score + "</span></li>";
+	return "<li><span>" + i + "</span><span>" + data.name?.substring(0,5+data.score/10) + "</span><span>" + data.score + "</span></li>";
 }
 
 module.exports = function (data) {
