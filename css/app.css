@@ -35,17 +35,17 @@ canvas{
 }
 .buttonWrapper{
 	position: absolute;
-	width: 86px;
-	height: 86px;
+	width: 140px;
+	height:140px;
 	left: 40px;
-	bottom: 40px;
+	bottom: 200px;
 	background-color: rgba(0,0,0,0.5);
 	border-radius: 100%;
 }
 .MotionControler{
 	position: absolute;
-    width: 36px;
-    height: 36px;
+    width: 90px;
+    height: 90px;
     margin: 25px;
 	border-radius: 100%;
 	border: 0;
