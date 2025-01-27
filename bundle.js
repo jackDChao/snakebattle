@@ -7392,7 +7392,7 @@ function Snake(pos, dir, score, color, AI, stage, name, manager) {
 	var PLAYGROUND_HEIGHT = Setting.PLAYGROUND_HEIGHT;
 	var GROW_SCORE_POINT = Setting.GROW_SCORE_POINT;
 	var NORMAL_AI_UPDATE_INTERVAL = Setting.NORMAL_AI_UPDATE_INTERVAL;
-	var TEXT = traditions[parseInt(traditions.length * Math.random())];
+	var TEXT = name || traditions[parseInt(traditions.length * Math.random())];
 
 	function init() {
 		createBody();
