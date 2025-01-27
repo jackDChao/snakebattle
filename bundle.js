@@ -50,8 +50,8 @@ function init() {
 
 	console.log(ratio);
 	var actualBounds = document.body.getBoundingClientRect();
-	Setting.SCREEN_WIDTH = canvas.getBoundingClientRect().width * ratio;
-	Setting.SCREEN_HEIGHT = canvas.getBoundingClientRect().height * ratio;
+	Setting.SCREEN_WIDTH = canvas.getBoundingClientRect().width * ratio/2;
+	Setting.SCREEN_HEIGHT = canvas.getBoundingClientRect().height * ratio/2;
 	canvas.style.width = actualBounds.width + "px";
 	canvas.style.height = actualBounds.height + "px";
 	canvas.width = Setting.SCREEN_WIDTH;
