@@ -7408,9 +7408,9 @@ function Snake(pos, dir, score, color, AI, stage, name, manager) {
 			if (curbody << INTERVAL_PATH_POINT === itr) {
 				if (curbody == 0) {
 					// generateNode(pt_new.x, pt_new.y, _name);
-					generateNode(pt_new.x, pt_new.y);
+					generateNode(pt_new.x, pt_new.y,'',AI);
 				} else {
-					generateNode(pt_new.x, pt_new.y);
+					generateNode(pt_new.x, pt_new.y,'',AI);
 				}
 				++curbody;
 			}
@@ -7424,9 +7424,9 @@ function Snake(pos, dir, score, color, AI, stage, name, manager) {
 		transMtx.transformPoint(_headPos.x, _headPos.y, pt);
 	}
 
-	function generateNode(x, y, name) {
+	function generateNode(x, y, name,AI) {
 		var text = name || TEXT[_textIdx++ % TEXT.length];
-		var body = new SnakeNodeSprite(_color, text);
+		var body = new SnakeNodeSprite(_color, text,AI);
 		body.x = x;
 		body.y = y;
 		body.ParentID = _id;
@@ -8090,13 +8090,13 @@ var Crumb = function (_createjs$Container2) {
 var SnakeNode = function (_createjs$Container3) {
 	_inherits(SnakeNode, _createjs$Container3);
 
-	function SnakeNode(color, user) {
+	function SnakeNode(color, user,AI) {
 		_classCallCheck(this, SnakeNode);
 
 		var _this3 = _possibleConstructorReturn(this, (SnakeNode.__proto__ || Object.getPrototypeOf(SnakeNode)).call(this));
 
 		_this3.foreGround = color;
-		_this3.drawBody();
+		_this3.drawBody(AI);
 		if (user) _this3.drawName(user);
 		_this3.name = "SNAKE_NODE";
 		return _this3;
@@ -8104,13 +8104,22 @@ var SnakeNode = function (_createjs$Container3) {
 
 	_createClass(SnakeNode, [{
 		key: "drawBody",
-		value: function drawBody() {
-			var circle = new createjs.Shape();
-			var color = this.foreGround;
-			circle.graphics.beginFill(color).drawCircle(0, 0, 20).endFill();
-
-			this.addChild(circle);
-			this.setBounds(-20, -20, 40, 40);
+		value: function drawBody(AI) {
+			if (AI) {
+        var circle = new createjs.Shape();
+			  var color = this.foreGround;
+			  circle.graphics.beginFill(color).drawCircle(0, 0, 20).endFill();
+        this.addChild(circle);
+      }else{
+        var bitmap = new createjs.Bitmap("./1.png");
+         // 设置图片的位置
+         bitmap.x = 0;
+         bitmap.y = 0;
+         // 设置图片的缩放比例
+         bitmap.scaleX = 0.04;
+         bitmap.scaleY = 0.04;
+         this.addChild(bitmap);
+      }
 		}
 	}, {
 		key: "drawName",
